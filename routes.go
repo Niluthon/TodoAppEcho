@@ -9,9 +9,9 @@ import (
 func RegisterRoutes(echo *echo.Echo) {
 	tasksHandler := &tasks.Handler{}
 
-	tasks := echo.Group("/tasks")
-	tasks.GET("/:id", tasksHandler.Get)
-	tasks.GET("", tasksHandler.FetchAll)
+	tasksGroup := echo.Group("/tasks")
+	tasksGroup.GET("/:id", tasksHandler.Get)
+	tasksGroup.GET("", tasksHandler.FetchAll)
 }
 
 //func testHandler(c *echo.Context) error {
