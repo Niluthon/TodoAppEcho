@@ -10,7 +10,8 @@ func RegisterRoutes(echo *echo.Echo) {
 	tasksHandler := &tasks.Handler{}
 
 	tasks := echo.Group("/tasks")
-	tasks.GET("", tasksHandler.TestTaskHandler)
+	tasks.GET("/:id", tasksHandler.Get)
+	tasks.GET("", tasksHandler.FetchAll)
 }
 
 //func testHandler(c *echo.Context) error {
